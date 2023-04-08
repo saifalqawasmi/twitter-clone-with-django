@@ -1,0 +1,33 @@
+{% extends "feed/base.html" %}
+
+{% block content %}
+	
+	<br>
+	<div class="jumbotron">
+	  <h1 class="display-4">Hello {{user.username}}</h1>
+	  <p class="lead">This is a simple tweeter clone </p>
+	  <hr class="my-4">
+	  <p>Click below to create a tweet</p>
+	  <p class="lead">
+	    <a class="btn btn-primary btn-lg" href="{% url 'create' %}" role="button">Create a tweet</a>
+	  </p>
+	</div>
+	<br>
+	<div class = 'container' ></div>
+		{% for tweet in object_list %}
+			<br>
+			<div class="card">
+				<div class="card-header">
+		  		<a href='#'><h4>{{ tweet.uname }}</h4></a>
+		  		<p>{{tweet.tweetdate}}</p>
+				</div>
+				<div class="card-body">
+		  		<p class="card-text">{{ tweet.text }}</p>
+		  		
+				</div>
+			</div>
+		
+		{% endfor %}
+	</div>
+	
+{% endblock %}
